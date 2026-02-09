@@ -1,0 +1,548 @@
+/* =====================================================
+   Quimbanda Congo - Stylesheet Principal
+   Paleta: Preto e Vermelho Místico
+   ===================================================== */
+
+/* =====================================================
+   VARIÁVEIS E RESET
+   ===================================================== */
+:root {
+    /* Cores Principais */
+    --preto-profundo: #0a0a0a;
+    --vermelho-escuro: #8B0000;
+    --vermelho-carmesim: #DC143C;
+    --vermelho-brilho: #FF0000;
+    --texto-escuro: #1a1a1a;
+    --texto-claro: #f5f5f5;
+    --borda-vinho: #4a0000;
+    --cinza-escuro: #2a2a2a;
+
+    /* Sombras e Efeitos */
+    --sombra-vermelha: 0 0 20px rgba(220, 20, 60, 0.3);
+    --sombra-preta: 0 5px 20px rgba(0, 0, 0, 0.5);
+    --brilho-vermelho: 0 0 30px rgba(220, 20, 60, 0.6);
+
+    /* Transições */
+    --transicao-suave: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--preto-profundo);
+    color: var(--texto-claro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   TIPOGRAFIA
+   ===================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: var(--texto-claro);
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(220, 20, 60, 0.5);
+}
+
+h2 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid var(--vermelho-escuro);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+h3 {
+    font-size: 2rem;
+    color: var(--vermelho-carmesim);
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* =====================================================
+   NAVEGAÇÃO
+   ===================================================== */
+nav {
+    background: linear-gradient(135deg, var(--preto-profundo) 0%, var(--cinza-escuro) 100%);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra-preta);
+    border-bottom: 2px solid var(--vermelho-escuro);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--vermelho-carmesim);
+    text-shadow: var(--sombra-vermelha);
+    letter-spacing: 3px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: var(--transicao-suave);
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--vermelho-carmesim);
+    background-color: rgba(220, 20, 60, 0.1);
+    box-shadow: var(--sombra-vermelha);
+}
+
+nav ul li a.active {
+    color: var(--vermelho-carmesim);
+    border-bottom: 2px solid var(--vermelho-carmesim);
+}
+
+/* Menu Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--vermelho-carmesim);
+    transition: var(--transicao-suave);
+}
+
+/* =====================================================
+   LAYOUT PRINCIPAL
+   ===================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 4rem 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* =====================================================
+   HERO SECTION
+   ===================================================== */
+.hero {
+    background: linear-gradient(135deg, var(--preto-profundo) 0%, var(--borda-vinho) 100%);
+    padding: 8rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(220, 20, 60, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin: 2rem 0;
+    color: var(--texto-claro);
+}
+
+/* =====================================================
+   BOTÕES
+   ===================================================== */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--vermelho-escuro);
+    background: linear-gradient(135deg, var(--vermelho-escuro) 0%, var(--vermelho-carmesim) 100%);
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: var(--transicao-suave);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--sombra-preta);
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--brilho-vermelho);
+    background: linear-gradient(135deg, var(--vermelho-carmesim) 0%, var(--vermelho-brilho) 100%);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--vermelho-carmesim);
+    color: var(--vermelho-carmesim);
+}
+
+.btn-secondary:hover {
+    background: var(--vermelho-carmesim);
+    color: var(--texto-claro);
+}
+
+/* =====================================================
+   CARDS DE SERVIÇOS
+   ===================================================== */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.servico-card {
+    background: linear-gradient(135deg, var(--cinza-escuro) 0%, var(--preto-profundo) 100%);
+    border-radius: 15px;
+    border: 2px solid var(--borda-vinho);
+    transition: var(--transicao-suave);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagem de fundo do card */
+.servico-card-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.servico-card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.95) 100%);
+}
+
+/* Conteúdo do card */
+.servico-card-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.servico-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(220, 20, 60, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: var(--transicao-suave);
+    z-index: 1;
+}
+
+.servico-card:hover::before {
+    opacity: 1;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--vermelho-carmesim);
+    box-shadow: var(--brilho-vermelho);
+}
+
+.servico-card:hover .servico-card-image::after {
+    background: linear-gradient(to bottom, transparent 0%, rgba(139, 0, 0, 0.3) 50%, rgba(10, 10, 10, 0.95) 100%);
+}
+
+.servico-icon {
+    font-size: 3rem;
+    color: var(--vermelho-carmesim);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.servico-card h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.servico-card p {
+    text-align: center;
+    color: var(--texto-claro);
+}
+
+
+/* =====================================================
+   FORMULÁRIO DE CONTATO
+   ===================================================== */
+.contato-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: var(--cinza-escuro);
+    padding: 3rem;
+    border-radius: 15px;
+    border: 2px solid var(--borda-vinho);
+    box-shadow: var(--sombra-preta);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--vermelho-carmesim);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--borda-vinho);
+    background-color: var(--preto-profundo);
+    color: var(--texto-claro);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transicao-suave);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--vermelho-carmesim);
+    box-shadow: var(--sombra-vermelha);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* =====================================================
+   BOTÃO WHATSAPP FLUTUANTE
+   ===================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+    cursor: pointer;
+    transition: var(--transicao-suave);
+    z-index: 999;
+    text-decoration: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+footer {
+    background: var(--preto-profundo);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 2px solid var(--vermelho-escuro);
+    margin-top: 4rem;
+}
+
+footer p {
+    color: var(--texto-claro);
+    margin: 0.5rem 0;
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--preto-profundo);
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .contato-form {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* =====================================================
+   ANIMAÇÕES ADICIONAIS
+   ===================================================== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: var(--vermelho-carmesim);
+    margin: 1rem auto;
+    box-shadow: var(--sombra-vermelha);
+}
