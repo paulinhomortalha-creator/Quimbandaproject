@@ -1,5 +1,5 @@
 // =====================================================
-// Quimbanda Congo - JavaScript Principal
+// Quimbanda cova do Mortalha - JavaScript Principal
 // =====================================================
 
 // Aguarda o carregamento completo do DOM
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // =====================================================
     // CONSOLE LOG MÍSTICO
     // =====================================================
-    console.log('%c⛧ QUIMBANDA CONGO ⛧', 'color: #DC143C; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);');
+    console.log('%c⛧ Quimbanda cova do Mortalha ⛧', 'color: #DC143C; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);');
     console.log('%cSite desenvolvido com respeito às tradições ancestrais', 'color: #f5f5f5; font-size: 12px;');
     
 });
